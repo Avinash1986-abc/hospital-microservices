@@ -156,8 +156,50 @@ The workload tests produced the following results:
 
 ### W3 and W4
 
+
 ![W3 and W4 Results](grahs/W3-W4.png)
 
 ### W5
 
 ![W5 Results](grahs/W5.png)
+
+## 11. CPU and Memory Utilization
+
+The resource utilization of all three containers was monitored using Docker Stats.
+
+### CPU Utilization
+
+![CPU Utilization](grahs/CPU_utilization.png)
+
+### Memory Utilization
+
+![Memory Utilization](grahs/Memory_utilization.png)
+
+The observed resource utilization was:
+
+| Service | CPU Utilization | Memory Utilization |
+|---------|-----------------|--------------------|
+| Appointment Service | 0.08% | 57.02 MiB |
+| Doctor Service | 0.08% | 45.46 MiB |
+| Patient Service | 0.07% | 58.23 MiB |
+
+The resource measurements show that all three services operated with low CPU utilization and moderate memory usage during the observation.
+
+## 12. Performance Analysis
+
+The workload results were analyzed by comparing response time and throughput at different concurrency levels.
+
+- Response time increased as the number of concurrent requests increased.
+- The lowest response time was observed at W1 with 1.97 ms.
+- At W5 with 16 concurrent requests, the response time increased to 29.39 ms.
+- Throughput remained around 470–542 requests per second across the tested workloads.
+- No request failures were observed from W2 to W5.
+- The resource utilization of all three services remained low during the observation.
+
+## 13. Conclusion
+
+The hospital microservice application was successfully developed using three independent services and deployed using Docker containers.
+
+The services communicated successfully through a Docker network. Workload testing with five concurrency levels showed that response time increased as concurrency increased, while throughput remained relatively stable.
+
+The experiment also demonstrated how container resource utilization can be monitored and how application performance changes under different workloads.
